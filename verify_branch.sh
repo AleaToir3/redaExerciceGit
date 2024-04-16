@@ -1,10 +1,9 @@
 #!/bin/bash
 
-branch_name="$1"
-expected_prefix="reda/"
+expected_branch="reda"
 
-if [[ "$branch_name" == "$expected_prefix"* ]]; then
-    echo "Bravo ! La branche a le bon préfixe."
+if git branch --list | grep -q "$expected_branch"; then
+    echo "Bravo ! La branche \"$expected_branch\" a été créée."
 else
-    echo "Erreur : La branche ne possède pas le bon préfixe."
+    echo "Erreur : La branche \"$expected_branch\" n'a pas été trouvée."
 fi
